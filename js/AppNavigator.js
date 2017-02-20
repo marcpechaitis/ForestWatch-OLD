@@ -95,6 +95,7 @@ class AppNavigator extends Component {
           this._drawer = ref;
         }}
         type="overlay"
+        side="right"
         tweenDuration={150}
         content={<SideBar />}
         tapToClose
