@@ -13,6 +13,7 @@ import {
 
 import { openDrawer } from '../../actions/drawer';
 import styles from './styles';
+import theme from '../../themes/base-theme';
 
 const {
   popRoute,
@@ -38,7 +39,7 @@ class BlankPage extends Component {
     const { props: { name, index, list } } = this;
 
     return (
-      <Container style={styles.container}>
+      <Container theme={theme}>
         <Header>
           <Button transparent onPress={() => this.popRoute()}>
             <Icon name="ios-arrow-back" />

@@ -15,7 +15,8 @@ import { Grid, Row } from 'react-native-easy-grid';
 
 import { openDrawer } from '../../actions/drawer';
 import { setIndex } from '../../actions/list';
-import params from '../../config/params';
+import colors from '../../common/colors';
+import params from '../../common/params';
 import styles from './styles';
 import theme from '../../themes/base-theme';
 
@@ -45,7 +46,7 @@ class Home extends Component {
   render() {
     return (
       <Container theme={theme}>
-        <Header backgroundColor="#458BDB">
+        <Header backgroundColor={colors.HEADER_COLOR}>
           <Button
             transparent
             onPress={() => this.props.reset(this.props.navigation.key)}
