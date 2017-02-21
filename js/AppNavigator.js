@@ -6,6 +6,7 @@ import { actions } from 'react-native-navigation-redux-helpers';
 
 import { closeDrawer } from './actions/drawer';
 
+import About from './components/about/';
 import Login from './components/login/';
 import Home from './components/home/';
 import BlankPage from './components/blankPage';
@@ -75,14 +76,16 @@ class AppNavigator extends Component {
   _renderScene(props) {
     // eslint-disable-line class-methods-use-this
     switch (props.scene.route.key) {
-      case 'splashscreen':
-        return <SplashPage />;
+      case 'about':
+        return <About />;
+      case 'blankPage':
+        return <BlankPage />;
       case 'login':
         return <Login />;
       case 'home':
         return <Home />;
-      case 'blankPage':
-        return <BlankPage />;
+      case 'splashscreen':
+        return <SplashPage />;
       default:
         return <Home />;
     }

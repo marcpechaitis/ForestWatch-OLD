@@ -121,9 +121,6 @@ export default {
     return this.fontSizeBase * 1.4;
   },
 
-  // App
-  defaultBackgroundColor: '#FF0000',
-
   // Footer
   footerHeight: 55,
   footerDefaultBg: platform === 'ios' ? '#F8F8F8' : '#4179F7',

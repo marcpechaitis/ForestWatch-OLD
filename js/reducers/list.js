@@ -1,6 +1,6 @@
 import type { Action } from '../actions/types';
 import { SET_INDEX } from '../actions/list';
-import params from '../config/params';
+import params from '../common/params';
 
 export type State = {
   list: string,
@@ -14,7 +14,6 @@ const initialState = {
     'NativeBase',
     'CodePush',
     'Redux',
-    params.ABOUT_US,
   ],
   selectedIndex: undefined,
 };

@@ -66,7 +66,7 @@ class Home extends Component {
 
         <Content style={styles.content}>
           <Card style={styles.card}>
-            <Grid style={styles.mt}>
+            <Grid style={styles.grid}>
               {this.props.list.map((item, i) => (
                 <Row key={i}>
                   <TouchableOpacity
