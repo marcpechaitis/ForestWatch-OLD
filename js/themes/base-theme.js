@@ -1,6 +1,6 @@
 import color from 'color';
-
 import { Platform, Dimensions, PixelRatio } from 'react-native';
+import commonColors from '../common/commonColors';
 
 const deviceHeight = Dimensions.get('window').height;
 const deviceWidth = Dimensions.get('window').width;
@@ -121,6 +121,9 @@ export default {
     return this.fontSizeBase * 1.4;
   },
 
+  // App
+  defaultBackgroundColor: '#FF0000',
+
   // Footer
   footerHeight: 55,
   footerDefaultBg: platform === 'ios' ? '#F8F8F8' : '#4179F7',
@@ -142,13 +145,15 @@ export default {
 
   // Header
   toolbarBtnColor: platform === 'ios' ? '#007aff' : '#fff',
-  toolbarDefaultBg: platform === 'ios' ? '#458BDB' : '#ff0000',
+  toolbarDefaultBg: platform === 'ios'
+    ? commonColors.HEADER_COLOR
+    : commonColors.HEADER_COLOR,
   toolbarHeight: platform === 'ios' ? 64 : 56,
   toolbarIconSize: platform === 'ios' ? 20 : 22,
   toolbarSearchIconSize: platform === 'ios' ? 20 : 23,
   toolbarInputColor: platform === 'ios' ? '#CECDD2' : '#fff',
   searchBarHeight: platform === 'ios' ? 30 : 40,
-  toolbarInverseBg: '#222',
+  toolbarInverseBg: commonColors.HEADER_COLOR_INVERSE,
   toolbarTextColor: platform === 'ios' ? '#fff' : '#fff',
   toolbarDefaultBorder: platform === 'ios' ? '#a7a6ab' : '#3F51B5',
   get statusBarColor() {

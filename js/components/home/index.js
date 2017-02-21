@@ -3,6 +3,7 @@ import { TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
 import {
+  Card,
   Container,
   Header,
   Title,
@@ -15,7 +16,7 @@ import { Grid, Row } from 'react-native-easy-grid';
 
 import { openDrawer } from '../../actions/drawer';
 import { setIndex } from '../../actions/list';
-import colors from '../../common/colors';
+import commonColors from '../../common/commonColors';
 import params from '../../common/params';
 import styles from './styles';
 import theme from '../../themes/base-theme';
@@ -46,7 +47,7 @@ class Home extends Component {
   render() {
     return (
       <Container theme={theme}>
-        <Header backgroundColor={colors.HEADER_COLOR}>
+        <Header backgroundColor={commonColors.HEADER_COLOR}>
           <Button
             transparent
             onPress={() => this.props.reset(this.props.navigation.key)}
@@ -63,19 +64,21 @@ class Home extends Component {
           </Button>
         </Header>
 
-        <Content>
-          <Grid style={styles.mt}>
-            {this.props.list.map((item, i) => (
-              <Row key={i}>
-                <TouchableOpacity
-                  style={styles.row}
-                  onPress={() => this.pushRoute('blankPage', i)}
-                >
-                  <Text style={styles.text}>{item}</Text>
-                </TouchableOpacity>
-              </Row>
-            ))}
-          </Grid>
+        <Content style={styles.content}>
+          <Card style={styles.card}>
+            <Grid style={styles.mt}>
+              {this.props.list.map((item, i) => (
+                <Row key={i}>
+                  <TouchableOpacity
+                    style={styles.row}
+                    onPress={() => this.pushRoute('blankPage', i)}
+                  >
+                    <Text style={styles.text}>{item}</Text>
+                  </TouchableOpacity>
+                </Row>
+              ))}
+            </Grid>
+          </Card>
         </Content>
       </Container>
     );

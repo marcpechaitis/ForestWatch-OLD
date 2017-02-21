@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
 import CodePush from 'react-native-code-push';
@@ -27,7 +26,6 @@ const styles = StyleSheet.create({
 });
 
 class App extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -38,8 +36,9 @@ class App extends Component {
   }
 
   componentDidMount() {
-    CodePush.sync({ updateDialog: true, installMode: CodePush.InstallMode.IMMEDIATE },
-      (status) => {
+    CodePush.sync(
+      { updateDialog: true, installMode: CodePush.InstallMode.IMMEDIATE },
+      status => {
         switch (status) {
           case CodePush.SyncStatus.DOWNLOADING_PACKAGE:
             this.setState({ showDownloadingModal: true });
@@ -57,45 +56,37 @@ class App extends Component {
         }
       },
       ({ receivedBytes, totalBytes }) => {
-        this.setState({ downloadProgress: (receivedBytes / totalBytes) * 100 });
-      }
+        this.setState({ downloadProgress: receivedBytes / totalBytes * 100 });
+      },
     );
   }
 
   render() {
     if (this.state.showDownloadingModal) {
       return (
-        <Container theme={theme} style={{ backgroundColor: theme.defaultBackgroundColor }}>
+        <Container
+          theme={theme}
+          style={{ backgroundColor: 'theme.defaultBackgroundColor' }}
+        >
           <Content style={styles.container}>
             <Modal
               style={[styles.modal, styles.modal1]}
               backdrop={false}
-              ref={(c) => { this._modal = c; }}
+              ref={c => {
+                this._modal = c;
+              }}
               swipeToClose={false}
             >
               <View
-                style={{ flex: 1, alignSelf: 'stretch', justifyContent: 'center', padding: 20 }}
+                style={{
+                  flex: 1,
+                  alignSelf: 'stretch',
+                  justifyContent: 'center',
+                  padding: 20,
+                }}
               >
-                {this.state.showInstalling ?
-                  <Text
-                    style={{
-                      color: theme.brandPrimary,
-                      textAlign: 'center',
-                      marginBottom: 15,
-                      fontSize: 15,
-                    }}
-                  >
-                    Installing update...
-                  </Text> :
-                  <View
-                    style={{
-                      flex: 1,
-                      alignSelf: 'stretch',
-                      justifyContent: 'center',
-                      padding: 20,
-                    }}
-                  >
-                    <Text
+                {this.state.showInstalling
+                  ? <Text
                       style={{
                         color: theme.brandPrimary,
                         textAlign: 'center',
@@ -103,14 +94,32 @@ class App extends Component {
                         fontSize: 15,
                       }}
                     >
-                      Downloading update... {`${parseInt(this.state.downloadProgress, 10)} %`}
+                      Installing update...
                     </Text>
-                    <ProgressBar
-                      color="theme.brandPrimary"
-                      progress={parseInt(this.state.downloadProgress, 10)}
-                    />
-                  </View>
-                }
+                  : <View
+                      style={{
+                        flex: 1,
+                        alignSelf: 'stretch',
+                        justifyContent: 'center',
+                        padding: 20,
+                      }}
+                    >
+                      <Text
+                        style={{
+                          color: theme.brandPrimary,
+                          textAlign: 'center',
+                          marginBottom: 15,
+                          fontSize: 15,
+                        }}
+                      >
+                        Downloading update...{' '}
+                        {`${parseInt(this.state.downloadProgress, 10)} %`}
+                      </Text>
+                      <ProgressBar
+                        color="theme.brandPrimary"
+                        progress={parseInt(this.state.downloadProgress, 10)}
+                      />
+                    </View>}
               </View>
             </Modal>
           </Content>
