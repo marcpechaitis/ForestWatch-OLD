@@ -1,14 +1,22 @@
-
 import React, { Component } from 'react';
 import { TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
-import { Container, Header, Title, Content, Text, Button, Icon } from 'native-base';
+import {
+  Container,
+  Header,
+  Title,
+  Content,
+  Text,
+  Button,
+  Icon,
+} from 'native-base';
 import { Grid, Row } from 'react-native-easy-grid';
 
 import { openDrawer } from '../../actions/drawer';
 import { setIndex } from '../../actions/list';
 import styles from './styles';
+import theme from '../../themes/base-theme';
 
 const {
   reset,
@@ -16,7 +24,6 @@ const {
 } = actions;
 
 class Home extends Component {
-
   static propTypes = {
     name: React.PropTypes.string,
     list: React.PropTypes.arrayOf(React.PropTypes.string),
@@ -27,7 +34,7 @@ class Home extends Component {
     navigation: React.PropTypes.shape({
       key: React.PropTypes.string,
     }),
-  }
+  };
 
   pushRoute(route, index) {
     this.props.setIndex(index);
@@ -36,13 +43,18 @@ class Home extends Component {
 
   render() {
     return (
-      <Container style={styles.container}>
-        <Header>
-          <Button transparent onPress={() => this.props.reset(this.props.navigation.key)}>
+      <Container theme={theme}>
+        <Header backgroundColor="#458BDB">
+          <Button
+            transparent
+            onPress={() => this.props.reset(this.props.navigation.key)}
+          >
             <Icon name="ios-power" />
           </Button>
 
-          <Title>{(this.props.name) ? this.props.name : 'Home'}</Title>
+          <Title>
+            {this.props.name ? this.props.name : 'P2P ForestWatch'}
+          </Title>
 
           <Button transparent onPress={this.props.openDrawer}>
             <Icon name="ios-menu" />
@@ -51,7 +63,7 @@ class Home extends Component {
 
         <Content>
           <Grid style={styles.mt}>
-            {this.props.list.map((item, i) =>
+            {this.props.list.map((item, i) => (
               <Row key={i}>
                 <TouchableOpacity
                   style={styles.row}
@@ -60,7 +72,7 @@ class Home extends Component {
                   <Text style={styles.text}>{item}</Text>
                 </TouchableOpacity>
               </Row>
-            )}
+            ))}
           </Grid>
         </Content>
       </Container>

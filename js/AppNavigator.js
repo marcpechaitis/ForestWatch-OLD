@@ -11,7 +11,7 @@ import Home from './components/home/';
 import BlankPage from './components/blankPage';
 import SplashPage from './components/splashscreen/';
 import SideBar from './components/sideBar';
-import { statusBarColor } from './themes/base-theme';
+import statusBarColor from './themes/variables';
 
 const {
   popRoute,
@@ -89,6 +89,7 @@ class AppNavigator extends Component {
   }
 
   render() {
+    console.log('@#@#@#@#@ ' + statusBarColor.statusBarColor);
     return (
       <Drawer
         ref={ref => {
@@ -121,7 +122,10 @@ class AppNavigator extends Component {
         }}
         negotiatePan
       >
-        <StatusBar backgroundColor={statusBarColor} barStyle="default" />
+        <StatusBar
+          backgroundColor={statusBarColor.statusBarColor}
+          barStyle="default"
+        />
         <NavigationCardStack
           navigationState={this.props.navigation}
           renderOverlay={this._renderOverlay}
