@@ -84,12 +84,11 @@ class AppNavigator extends Component {
       case 'blankPage':
         return <BlankPage />;
       default:
-        return <Login />;
+        return <Home />;
     }
   }
 
   render() {
-    console.log('@#@#@#@#@ ' + statusBarColor.statusBarColor);
     return (
       <Drawer
         ref={ref => {
