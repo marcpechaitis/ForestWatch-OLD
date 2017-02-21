@@ -57,7 +57,7 @@ class Home extends Component {
           </Title>
 
           <Button transparent onPress={this.props.openDrawer}>
-            <Icon name="ios-menu" />
+            <Icon name="md-more" />
           </Button>
         </Header>
 
