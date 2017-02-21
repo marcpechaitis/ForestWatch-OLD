@@ -15,6 +15,7 @@ import { Grid, Row } from 'react-native-easy-grid';
 
 import { openDrawer } from '../../actions/drawer';
 import { setIndex } from '../../actions/list';
+import params from '../../config/params';
 import styles from './styles';
 import theme from '../../themes/base-theme';
 
@@ -53,7 +54,7 @@ class Home extends Component {
           </Button>
 
           <Title>
-            {this.props.name ? this.props.name : 'P2P ForestWatch'}
+            {this.props.name ? this.props.name : params.APP_NAME}
           </Title>
 
           <Button transparent onPress={this.props.openDrawer}>

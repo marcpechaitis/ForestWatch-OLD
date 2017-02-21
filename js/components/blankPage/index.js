@@ -1,8 +1,15 @@
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
-import { Container, Header, Title, Content, Text, Button, Icon } from 'native-base';
+import {
+  Container,
+  Header,
+  Title,
+  Content,
+  Text,
+  Button,
+  Icon,
+} from 'native-base';
 
 import { openDrawer } from '../../actions/drawer';
 import styles from './styles';
@@ -12,7 +19,6 @@ const {
 } = actions;
 
 class BlankPage extends Component {
-
   static propTypes = {
     name: React.PropTypes.string,
     index: React.PropTypes.number,
@@ -22,7 +28,7 @@ class BlankPage extends Component {
     navigation: React.PropTypes.shape({
       key: React.PropTypes.string,
     }),
-  }
+  };
 
   popRoute() {
     this.props.popRoute(this.props.navigation.key);
@@ -38,16 +44,13 @@ class BlankPage extends Component {
             <Icon name="ios-arrow-back" />
           </Button>
 
-          <Title>{(name) ? this.props.name : 'Blank Page'}</Title>
+          <Title>{name ? this.props.name : 'Blank Page'}</Title>
 
-          <Button transparent onPress={this.props.openDrawer}>
-            <Icon name="ios-menu" />
-          </Button>
         </Header>
 
         <Content padder>
           <Text>
-            {(!isNaN(index)) ? list[index] : 'Create Something Awesome . . .'}
+            {!isNaN(index) ? list[index] : 'Create Something Awesome . . .'}
           </Text>
         </Content>
       </Container>
@@ -68,6 +71,5 @@ const mapStateToProps = state => ({
   index: state.list.selectedIndex,
   list: state.list.list,
 });
-
 
 export default connect(mapStateToProps, bindAction)(BlankPage);
