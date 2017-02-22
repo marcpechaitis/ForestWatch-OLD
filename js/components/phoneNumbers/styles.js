@@ -4,6 +4,8 @@ import commonColors from '../../common/commonColors';
 const React = require('react-native');
 const { StyleSheet } = React;
 const platform = Platform.OS;
+
+//const styles = {
 module.exports = StyleSheet.create({
   container: {
     margin: 20,
@@ -25,25 +27,26 @@ module.exports = StyleSheet.create({
     alignItems: 'center',
   },
   text: {
-    fontSize: 20,
-    marginBottom: 15,
+    fontSize: 18,
     alignItems: 'center',
   },
-  buttonEmergency: {
+  buttonText: {
+    fontSize: 18,
+    color: '#fff',
+  },
+  button: {
     marginTop: 20,
     marginBottom: 20,
+    width: 200,
+    alignSelf: 'center',
+  },
+  emergency: {
     backgroundColor: commonColors.BUTTON_COLOR_EMERGENCY,
-    width: 200,
-    alignSelf: 'center',
   },
-  buttonDispatch: {
-    marginTop: 20,
-    marginBottom: 20,
+  dispatch: {
     backgroundColor: commonColors.BUTTON_COLOR,
-    width: 200,
-    alignSelf: 'center',
   },
-  mt: {
+  mt20: {
     marginTop: 20,
   },
 });

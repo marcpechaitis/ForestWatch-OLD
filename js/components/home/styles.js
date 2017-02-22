@@ -29,4 +29,11 @@ module.exports = StyleSheet.create({
     marginBottom: 15,
     alignItems: 'center',
   },
+  button: {
+    marginTop: 20,
+    marginBottom: 20,
+    backgroundColor: commonColors.BUTTON_COLOR,
+    width: 200,
+    alignSelf: 'center',
+  },
 });

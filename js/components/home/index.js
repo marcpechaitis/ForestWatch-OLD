@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import { TouchableOpacity } from 'react-native';
+import { Alert, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
 import {
+  Button,
   Card,
   Container,
-  Header,
-  Title,
   Content,
-  Text,
-  Button,
+  Header,
   Icon,
+  Text,
+  Title,
 } from 'native-base';
 import { Grid, Row } from 'react-native-easy-grid';
 
@@ -78,6 +78,12 @@ class Home extends Component {
                 </Row>
               ))}
             </Grid>
+            <Button
+              style={styles.button}
+              onPress={() => Alert.alert('Bingo', '')}
+            >
+              Report New Incident
+            </Button>
           </Card>
         </Content>
       </Container>

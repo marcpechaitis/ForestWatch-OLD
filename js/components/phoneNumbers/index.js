@@ -35,16 +35,22 @@ class PhoneNumbers extends Component {
   }
 
   makePhoneCall(phoneNbrToCall) {
-    const phoneURL = 'tel:' + phoneNbrToCall;
-    Linking.canOpenURL(phoneURL)
-      .then(supported => {
-        if (!supported) {
-          console.log("Can't call: " + phoneURL);
-        } else {
-          return Linking.openURL(phoneURL);
-        }
-      })
-      .catch(error => console.log('An unexpected error happened', error));
+    const phoneURL = `tel:${phoneNbrToCall}`;
+    Alert.alert(`Call ${phoneNbrToCall}?`, '', [
+      { text: 'Cancel', onPress: () => null },
+      {
+        text: 'Yes',
+        onPress: () => Linking.canOpenURL(phoneURL)
+          .then(supported => {
+            if (!supported) {
+              console.log(`Can't call: ${phoneURL}`);
+            } else {
+              return Linking.openURL(phoneURL);
+            }
+          })
+          .catch(error => console.log('An unexpected error happened', error)),
+      },
+    ]);
   }
 
   render() {
@@ -61,66 +67,41 @@ class PhoneNumbers extends Component {
 
         <Content style={styles.content}>
           <Card style={styles.card}>
-            <Text>
+            <Text style={styles.text}>
               {params.PHONE_TEXT_EMERGENCY}
             </Text>
             <Button
-              style={styles.buttonEmergency}
-              onPress={() => Alert.alert(
-                'Call ' + params.PHONE_NUMBER_EMERGENCY + '?',
-                '',
-                [
-                  { text: 'Cancel', onPress: () => null },
-                  {
-                    text: 'Yes',
-                    onPress: () =>
-                      this.makePhoneCall(params.PHONE_NUMBER_EMERGENCY),
-                  },
-                ],
-              )}
+              style={[styles.button, styles.emergency]}
+              onPress={() => this.makePhoneCall(params.PHONE_NUMBER_EMERGENCY)}
             >
-              Call {params.PHONE_NUMBER_EMERGENCY}
+              <Text style={styles.buttonText}>
+                Call {params.PHONE_NUMBER_EMERGENCY}
+              </Text>
             </Button>
-            <Text>
+            <Text style={styles.text}>
               {params.PHONE_TEXT_NON_EMERGENCY}
             </Text>
-            <Text style={styles.mt}>
+            <Text style={[styles.mt20, styles.text]}>
               {params.PHONE_TEXT_DISPATCH_BOULDER}
             </Text>
             <Button
-              style={styles.buttonDispatch}
-              onPress={() => Alert.alert(
-                'Call ' + params.PHONE_NUMBER_DISPATCH_BOULDER + '?',
-                '',
-                [
-                  { text: 'Cancel', onPress: () => null },
-                  {
-                    text: 'Yes',
-                    onPress: () =>
-                      this.makePhoneCall(params.PHONE_NUMBER_DISPATCH_BOULDER),
-                  },
-                ],
-              )}
+              style={[styles.button, styles.dispatch]}
+              onPress={() =>
+                this.makePhoneCall(params.PHONE_NUMBER_DISPATCH_BOULDER)}
             >
-              Call {params.PHONE_NUMBER_DISPATCH_BOULDER}
+              <Text style={styles.buttonText}>
+                Call {params.PHONE_NUMBER_DISPATCH_BOULDER}
+              </Text>
             </Button>
-            <Text>{params.PHONE_TEXT_DISPATCH_GILPEN}</Text>
+            <Text style={styles.text}>{params.PHONE_TEXT_DISPATCH_GILPEN}</Text>
             <Button
-              style={styles.buttonDispatch}
-              onPress={() => Alert.alert(
-                'Call ' + params.PHONE_NUMBER_DISPATCH_GILPEN + '?',
-                '',
-                [
-                  { text: 'Cancel', onPress: () => null },
-                  {
-                    text: 'Yes',
-                    onPress: () =>
-                      this.makePhoneCall(params.PHONE_NUMBER_DISPATCH_GILPEN),
-                  },
-                ],
-              )}
+              style={[styles.button, styles.dispatch]}
+              onPress={() =>
+                this.makePhoneCall(params.PHONE_NUMBER_DISPATCH_GILPEN)}
             >
-              Call {params.PHONE_NUMBER_DISPATCH_GILPEN}
+              <Text style={styles.buttonText}>
+                Call {params.PHONE_NUMBER_DISPATCH_GILPEN}
+              </Text>
             </Button>
           </Card>
         </Content>

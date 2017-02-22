@@ -4,6 +4,7 @@ import commonColors from '../../common/commonColors';
 const React = require('react-native');
 const { StyleSheet } = React;
 const platform = Platform.OS;
+
 module.exports = StyleSheet.create({
   container: {
     margin: 20,
@@ -14,7 +15,7 @@ module.exports = StyleSheet.create({
   card: {
     backgroundColor: commonColors.BACKGROUND_COLOR_CARD,
     marginHorizontal: 5,
-    paddingHorizontal: 5,
+    padding: 7,
     borderRadius: platform === 'ios' ? 5 : 2,
   },
   grid: {
@@ -25,8 +26,7 @@ module.exports = StyleSheet.create({
     alignItems: 'center',
   },
   text: {
-    fontSize: 20,
-    marginBottom: 15,
+    fontSize: 18,
     alignItems: 'center',
   },
 });

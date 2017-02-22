@@ -5,6 +5,7 @@ const commonColors = {
   BACKGROUND_COLOR_CARD: '#FBFAFA',
   BUTTON_COLOR_EMERGENCY: '#D9534F',
   BUTTON_COLOR: '#458BDB',
+  BUTTON_SECONDARY: '#DB8308',
 };
 
 module.exports = commonColors;

@@ -47,7 +47,7 @@ class About extends Component {
 
         <Content style={styles.content}>
           <Card style={styles.card}>
-            <Text>
+            <Text style={styles.text}>
               {params.ABOUT_US}
             </Text>
           </Card>
