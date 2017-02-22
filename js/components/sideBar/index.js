@@ -31,6 +31,9 @@ class SideBar extends Component {
           <ListItem button onPress={() => this.navigateTo('about')}>
             <Text>About Us</Text>
           </ListItem>
+          <ListItem button onPress={() => this.navigateTo('phoneNumbers')}>
+            <Text>Important Phone Numbers</Text>
+          </ListItem>
         </List>
       </Content>
     );

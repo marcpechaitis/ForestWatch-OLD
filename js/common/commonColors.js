@@ -3,6 +3,8 @@ const commonColors = {
   HEADER_COLOR_INVERSE: '#BA7424',
   BACKGROUND_COLOR_CONTENT: '#67796A',
   BACKGROUND_COLOR_CARD: '#FBFAFA',
+  BUTTON_COLOR_EMERGENCY: '#D9534F',
+  BUTTON_COLOR: '#458BDB',
 };
 
 module.exports = commonColors;
