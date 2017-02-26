@@ -8,12 +8,11 @@ export type State = {
 
 const initialState = {
   list: [
-    'React Native Starter Kit',
-    'Navigation Experimental',
-    'NativeBase Easy Grid',
-    'NativeBase',
-    'CodePush',
-    'Redux',
+    'Incident 1 Placeholder',
+    'Incident 2 Placeholder',
+    'Incident 3 Placeholder',
+    'Incident 4 Placeholder',
+    'Incident 5 Placeholder',
   ],
   selectedIndex: undefined,
 };

@@ -13,6 +13,7 @@ import {
 } from 'native-base';
 
 import { openDrawer } from '../../actions/drawer';
+import commonStyles from '../../common/commonStyles';
 import params from '../../common/params';
 import styles from './styles';
 import theme from '../../themes/base-theme';
@@ -45,8 +46,8 @@ class About extends Component {
 
         </Header>
 
-        <Content style={styles.content}>
-          <Card style={styles.card}>
+        <Content style={commonStyles.content}>
+          <Card style={commonStyles.card}>
             <Text style={styles.text}>
               {params.ABOUT_US}
             </Text>

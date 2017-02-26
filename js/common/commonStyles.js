@@ -1,5 +1,5 @@
 import { Platform } from 'react-native';
-import commonColors from '../../common/commonColors';
+import commonColors from './commonColors';
 
 const React = require('react-native');
 const { StyleSheet } = React;
@@ -7,11 +7,10 @@ const platform = Platform.OS;
 
 //const styles = {
 module.exports = StyleSheet.create({
-  container: {
-    margin: 16,
-  },
+  // layout styles
   content: {
     backgroundColor: commonColors.BACKGROUND_COLOR_CONTENT,
+    paddingTop: 4,
   },
   card: {
     backgroundColor: commonColors.BACKGROUND_COLOR_CARD,
@@ -26,27 +25,31 @@ module.exports = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
   },
+  mt16: {
+    marginTop: 16,
+  },
+  // text styles
   text: {
     fontSize: 16,
     alignItems: 'center',
   },
+  // element styles
   buttonText: {
     fontSize: 16,
     color: '#fff',
   },
   button: {
+    backgroundColor: commonColors.BUTTON_COLOR,
     marginTop: 16,
     marginBottom: 16,
     width: 200,
     alignSelf: 'center',
   },
+
   emergency: {
     backgroundColor: commonColors.BUTTON_COLOR_EMERGENCY,
   },
   dispatch: {
     backgroundColor: commonColors.BUTTON_COLOR,
-  },
-  mt16: {
-    marginTop: 16,
   },
 });

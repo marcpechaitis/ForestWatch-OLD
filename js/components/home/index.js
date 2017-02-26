@@ -17,6 +17,7 @@ import { Grid, Row } from 'react-native-easy-grid';
 import { openDrawer } from '../../actions/drawer';
 import { setIndex } from '../../actions/list';
 import commonColors from '../../common/commonColors';
+import commonStyles from '../../common/commonStyles';
 import params from '../../common/params';
 import styles from './styles';
 import theme from '../../themes/base-theme';
@@ -47,7 +48,7 @@ class Home extends Component {
   render() {
     return (
       <Container theme={theme}>
-        <Header backgroundColor={commonColors.HEADER_COLOR}>
+        <Header iconRight backgroundColor={commonColors.HEADER_COLOR}>
           <Button
             transparent
             onPress={() => this.props.reset(this.props.navigation.key)}
@@ -64,8 +65,8 @@ class Home extends Component {
           </Button>
         </Header>
 
-        <Content style={styles.content}>
-          <Card style={styles.card}>
+        <Content style={commonStyles.content}>
+          <Card style={commonStyles.card}>
             <Grid style={styles.grid}>
               {this.props.list.map((item, i) => (
                 <Row key={i}>
@@ -79,10 +80,12 @@ class Home extends Component {
               ))}
             </Grid>
             <Button
-              style={styles.button}
+              style={commonStyles.button}
               onPress={() => Alert.alert('Bingo', '')}
             >
-              Report New Incident
+              <Text style={commonStyles.buttonText} allowFontScaling={false}>
+                Report New Incident
+              </Text>
             </Button>
           </Card>
         </Content>
